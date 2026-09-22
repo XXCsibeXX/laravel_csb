@@ -7,6 +7,7 @@
   @foreach($counties as $county)
     <p>{{ $county->name }}</p>
     <form action="{{ route('counties.destroy', $county->id) }}" method="POST">
+      <a href="{{ route('counties.edit', $county->id) }}">Szerkesztés</a>
       @csrf
       @method('DELETE')
       <button type="submit">Törlés</button>

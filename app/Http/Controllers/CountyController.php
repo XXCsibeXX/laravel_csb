@@ -54,7 +54,7 @@ class CountyController extends Controller
      */
     public function edit(County $county)
     {
-        return view('counties.edit', compact('counties'));
+        return view('counties.edit', compact('county'));
     }
 
     /**
@@ -67,6 +67,7 @@ class CountyController extends Controller
         ]);
 
         $county->update($validated);
+        $counties = County::all();
 
         return redirect()
             ->route('counties.index', compact('counties'))
